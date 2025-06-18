@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form id="cyberForm" onsubmit="return handleSubmit(event)">
+            <div class="unicorn-header">
+                <img src="https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=300&q=80" 
+                     alt="Японский сад" 
+                     class="unicorn-image">
+                <h1>✿ Анкета ✿</h1>
+            </div>
+            
+            <div class="form-group">
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname" name="surname" required maxlength="50" 
+                       pattern="[А-Яа-яЁёA-Za-z\s-]+" 
+                       placeholder="Введите вашу фамилию"
+                       title="Буквы русского или английского алфавита">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" name="name" required maxlength="50" 
+                       pattern="[А-Яа-яЁёA-Za-z\s-]+" 
+                       placeholder="Введите ваше имя"
+                       title="Буквы русского или английского алфавита">
+            </div>
+
+            <div class="form-group">
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic" maxlength="50" 
+                       pattern="[А-Яа-яЁёA-Za-z\s-]+" 
+                       placeholder="Введите ваше отчество (при наличии)"
+                       title="Буквы русского или английского алфавита">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required 
+                       minlength="8" maxlength="25"
+                       placeholder="Введите пароль">
+                <div id="passwordStrength" class="password-strength"></div>
+                <div class="password-hints">
+                    <div id="lengthHint" class="hint">✿ 8-25 символов</div>
+                    <div id="upperHint" class="hint">✿ Заглавная буква</div>
+                    <div id="lowerHint" class="hint">✿ Строчная буква</div>
+                    <div id="numberHint" class="hint">✿ Цифра</div>
+                    <div id="specialHint" class="hint">✿ Специальный символ</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">Дата рождения</label>
+                <input type="date" id="birthDate" name="birthDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" required
+                       pattern="\+[0-9]{7,15}" 
+                       placeholder="+7XXXXXXXXXX"
+                       title="Формат: +XXXXXXXXXXX (7-15 цифр)">
+            </div>
+
+            <div class="form-group">
+                <label for="education">Образование</label>
+                <select id="education" name="education" required>
+                    <option value="" disabled selected>Выберите уровень образования</option>
+                    <option value="basic">Основное общее образование (9 классов)</option>
+                    <option value="secondary">Среднее общее образование (11 классов)</option>
+                    <option value="vocational">Среднее профессиональное образование</option>
+                    <option value="bachelor">Высшее образование - Бакалавриат</option>
+                    <option value="specialist">Высшее образование - Специалитет</option>
+                    <option value="master">Высшее образование - Магистратура</option>
+                    <option value="postgraduate">Высшее образование - Подготовка кадров высшей квалификации</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="about">О себе</label>
+                <textarea id="about" name="about" maxlength="1024" rows="4" 
+                          placeholder="Расскажите о себе..."></textarea>
+                <div class="char-counter">✿ <span id="charCount">0</span>/1024</div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="reset" class="reset-btn">Сбросить</button>
+                <button type="submit" class="submit-btn">✿ Отправить</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
